@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Menu button with list</title>
+      <!-- style file -->
+      <link rel="stylesheet" href="style.css">
+      <!-- font awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <!-- jquery cdn -->
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   </head>
+   <body>
+      <div class="menu-wrapper">
+         <div class="button-wrapper">
+            Menu<span class="fas fa-bars"></span>
+         </div>
+         <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+              <li><a href="#">Service</a></li>
+               <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+            
+         </ul>
+      </div>
+      <script>
+         $(document).ready(function(){
+           $('.button-wrapper').click(function(){
+             if($(this).hasClass('expand')){
+               $('ul').slideUp(function(){
+                 $('.button-wrapper').removeClass('expand');
+                 $('.fas').removeClass('expand')
+               });
+             }
+             else{
+               $(this).addClass('expand');
+               setTimeout(function(){
+                 $('.fas').addClass('expand');
+                 $('ul').stop().slideDown();
+               },200);
+             }
+           });
+         });
+      </script>
+   </body>
+</html>
